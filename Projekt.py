@@ -41,10 +41,10 @@ tegevuse_sisestamine = ttk.Entry(raam)
 tegevuse_sisestamine.grid(column=2, row=0, padx=10, pady=10)
 aja_sisestamine = ttk.Entry(raam)
 aja_sisestamine.grid(column=3, row=0, padx=10, pady=10)
-nupp = ttk.Button(raam, text="Lisa", command=lisa)
+nupp = ttk.Button(raam, text="Lisa", command=lambda: lisa(raam))
 #sulgudesse vaja ka command = alustab aja lugemist, mis on funktsioonis aeg
 nupp.grid(column=4, row= 0, padx=5, pady=5)
 #see junn tuleks panna tsüklisse
-a=time()
+#a=time()
 do_do()
-print(round(a/3600, 3),"asiiii")
+#print(round(a/3600, 3),"asiiii")
