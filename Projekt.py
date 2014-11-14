@@ -2,8 +2,10 @@
 from tkinter import *
 from tkinter import ttk
 from time import *
-def lisa_to_do():
-    e = 0
+from stopp_nupp import stopp
+from lisa_to_do import lisa
+
+
 def do_do():
     var = IntVar()
     c = Checkbutton(raam, variable=var)
@@ -17,7 +19,7 @@ def do_do():
 
     # soovime, et nupp veniks nii laiuses kui ka kõrguses
     a = time()
-    nupp = ttk.Button(raam, text="Start", command=a)
+    nupp = ttk.Button(raam, text="Start", command=lambda : stopp(raam))
     #sulgudesse vaja ka command = alustab aja lugemist, mis on funktsioonis aeg
     nupp.grid(column=4, row=2, padx=5, pady=5)
 
@@ -28,7 +30,7 @@ def do_do():
 
     # kuvame akna ekraanile
     raam.mainloop()
-    
+
 raam = Tk()
 raam.title("To Do")
 #rea pealkiri
@@ -39,7 +41,7 @@ tegevuse_sisestamine = ttk.Entry(raam)
 tegevuse_sisestamine.grid(column=2, row=0, padx=10, pady=10)
 aja_sisestamine = ttk.Entry(raam)
 aja_sisestamine.grid(column=3, row=0, padx=10, pady=10)
-nupp = ttk.Button(raam, text="Lisa", command=lisa_to_do())
+nupp = ttk.Button(raam, text="Lisa", command=lisa)
 #sulgudesse vaja ka command = alustab aja lugemist, mis on funktsioonis aeg
 nupp.grid(column=4, row= 0, padx=5, pady=5)
 #see junn tuleks panna tsüklisse
