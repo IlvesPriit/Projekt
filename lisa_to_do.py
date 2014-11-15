@@ -15,7 +15,7 @@ def do_do(raam):
     aeg.grid(column=3, row = rida,  padx=5, pady=5)
     # soovime, et nupp veniks nii laiuses kui ka kõrguses
     a = time()
-    nupp = ttk.Button(raam, text="Start", command=lambda : stopp(raam))
+    nupp = ttk.Button(raam, text="Start", command=lambda : stopp(raam, rida))
     #sulgudesse vaja ka command = alustab aja lugemist, mis on funktsioonis aeg
     nupp.grid(column=4, row = rida,  padx=5, pady=5)
     # soovime, et nupp muutuks peale vajutust
