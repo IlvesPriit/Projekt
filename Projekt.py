@@ -29,5 +29,22 @@ nupp.grid(column=4, row= 0, padx=5, pady=5)
 raam.columnconfigure(10, weight=10)
 raam.rowconfigure(1, weight=10)
 
+#menüü
+def Uus_fail():
+    print("mingi asi!")
+def Uus_fail2():
+    print("menüü commandi näidis")
+
+menu = Menu(raam)
+raam.config(menu=menu)
+filemenu = Menu(menu)
+menu.add_cascade(label="Homme", menu=filemenu)
+#see lisab sinna menüü alla mingeid vidinaid
+#filemenu.add_command(label="Tulevikus", command=NewFile)
+menu.add_cascade(label="Tulevikus", menu=filemenu)
+menu.add_cascade(label="Arhiiv", menu=filemenu)
+
+filemenu.add_separator()
+filemenu.add_command(label="Exit", command=raam.quit)
 # kuvame akna ekraanile
 raam.mainloop()
