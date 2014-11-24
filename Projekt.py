@@ -52,7 +52,7 @@ tegevuse_sisestamine.grid(column=2, row=0, padx=10, pady=10)
 aja_sisestamine = Entry(raam)
 aja_sisestamine.grid(column=3, row=0, padx=10, pady=10)
 
-nupp = Button(raam, text=" Lisa ",bg="blue", command=lambda: do_do(raam))
+nupp = Button(raam, text=" Lisa ",bg="white", command=lambda: do_do(raam))
 #sulgudesse vaja ka command = alustab aja lugemist, mis on funktsioonis aeg
 nupp.grid(column=4, row= 0, padx=5, pady=6)
 #see junn tuleks panna tsüklisse
