@@ -1,9 +1,8 @@
 from tkinter import *
 from tkinter import ttk
-from time import *
-from stopp_nupp import stopp
-from stopp_nupp import aeg
+
 from lisa_to_do import do_do
+
 
 #võta see muutuja i ning lisa see õigetele ridadele, sest iga dodo peab olema ju uuel
 raam = Tk()

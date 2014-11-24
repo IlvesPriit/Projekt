@@ -1,7 +1,9 @@
 from tkinter import *
 from tkinter import ttk
 from time import *
+
 from stopp_nupp import stopp
+
 #funktsioon üheks linnukesega tegevuse reaks
 #see värk peaks käivituma iga kord kui vajutada nuppu 'lisa'
 def do_do(raam):
@@ -17,8 +19,8 @@ def do_do(raam):
     a = time()
     nupp = ttk.Button(raam, text="Start", command=lambda : stopp(raam, rida))
     #sulgudesse vaja ka command = alustab aja lugemist, mis on funktsioonis aeg
-    nupp.grid(column=4, row = rida,  padx=5, pady=5)
+    nupp.grid(column=4, row = rida,  padx=5, pady=6)
     # soovime, et nupp muutuks peale vajutust
     progress = ttk.Progressbar(raam, orient='horizontal', length= 100, mode = 'indeterminate')
-    progress.grid(column=5, row=rida, padx=5, pady=6)
+    progress.grid(column=5, row=rida, padx=5, pady=5)
 

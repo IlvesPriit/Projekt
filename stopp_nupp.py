@@ -1,4 +1,4 @@
-__author__ = 'Karin'
+
 
 from tkinter import *
 from tkinter import ttk
@@ -12,6 +12,6 @@ def stopp(raam, rida):
     #b = time()
     nupp = Button(raam, text="Stopp",bg="red", command=aeg)
     #sulgudesse vaja ka command = alustab aja lugemist, mis on funktsioonis aeg
-    nupp.grid(column=4, row=rida, padx=5, pady=5)
+    nupp.grid(column=4, row=rida, padx=5, pady=6)
     #print(b)
 
