@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 from stopp_nupp import stopp
-from stopp_nupp import start
+#from stopp_nupp import start
 #from stopp_nupp import aeg
 #from lisa_to_do import do_do
 #from ristike import unusta
@@ -27,7 +27,7 @@ def do_do(raam):
     
     # soovime, et nupp veniks nii laiuses kui ka kõrguses
     a = time()
-    nupp = Button(raam, text=" Start ",bg="green", command=lambda : stopp(raam, rida))
+    nupp = Button(raam,cursor="hand2", text=" Start ",bg="lime green", command=lambda : stopp(raam, rida))
     #sulgudesse vaja ka command = alustab aja lugemist, mis on funktsioonis aeg
     nupp.grid(column=4, row = rida,  padx=5, pady=6)
 
@@ -45,7 +45,7 @@ def do_do(raam):
 #võta see muutuja i ning lisa see õigetele ridadele, sest iga dodo peab olema ju uuel
 raam = Tk()
 raam.title("To Do")
-colour = 'pink'
+colour = 'SkyBlue1'
 raam.configure(background=colour)
 
 f = open("backg.gif")
@@ -61,17 +61,38 @@ rea_pealkiri = Label(raam, text="Tegevus")
 rea_pealkiri.grid(column=0, row=0, padx=5, pady=5)
 rea_pealkiri.configure(background=colour)
 #sisestamise kastikesed
-tegevuse_sisestamine = Entry(raam)
+tegevuse_sisestamine = Entry(raam, cursor="pencil")
 tegevuse_sisestamine.grid(column=2, row=0, padx=10, pady=10)
 
-aja_sisestamine = Entry(raam)
+aja_sisestamine = Entry(raam, cursor="pencil")
 aja_sisestamine.grid(column=3, row=0, padx=10, pady=10)
 
-nupp = Button(raam, text=" Lisa ",bg="white", command=lambda: do_do(raam))
+nupp = Button(raam, cursor="hand2",text=" Lisa ",bg="SkyBlue2", command=lambda: do_do(raam))
 #sulgudesse vaja ka command = alustab aja lugemist, mis on funktsioonis aeg
 nupp.grid(column=4, row= 0, padx=5, pady=6)
-#see junn tuleks panna tsüklisse
-#do_do()
+
+#teen selle et värvi saaks valida
+#menüü buttoni moodi asi
+akna_colour = ttk.Menubutton(raam, cursor="hand2", text="Värv")
+akna_colour.grid(column=6, row= 0, padx=5, pady=5)
+akna_colour.menu= Menu(akna_colour, tearoff=0)
+akna_colour['menu'] = akna_colour.menu
+
+akna_colour.mayoVar  = IntVar()
+akna_colour.ketchVar = IntVar()
+akna_colour.menu.add_checkbutton(label='   ', background ="medium orchid", variable=akna_colour.mayoVar)
+akna_colour.menu.add_checkbutton(label='   ', background="blue",variable=akna_colour.ketchVar)
+akna_colour.menu.add_checkbutton(label='   ', background="pink",variable=akna_colour.ketchVar)
+akna_colour.menu.add_checkbutton(label='   ', background="white",variable=akna_colour.ketchVar)
+akna_colour.menu.add_checkbutton(label='   ', background="green yellow",variable=akna_colour.ketchVar)
+akna_colour.menu.add_checkbutton(label='   ', background="deep sky blue",variable=akna_colour.ketchVar)
+akna_colour.menu.add_checkbutton(label='   ', background="IndianRed1",variable=akna_colour.ketchVar)
+
+
+
+#akna_colour.add_command(label="Tulevikus", command=donothing)
+#akna_colour.add_command(label="Tulevikus", command=donothing)
+
 
 
 # soovime, et akna suuruse muutmisel muudetakse veeru 1 ja rea 1 mõõtmeid
