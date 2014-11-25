@@ -6,7 +6,7 @@ from stopp_nupp import stopp
 
 #funktsioon üheks linnukesega tegevuse reaks
 #see värk peaks käivituma iga kord kui vajutada nuppu 'lisa'
-def do_do(raam):
+def do_do(raam, colour):
     var = IntVar()
     c = Checkbutton(raam, variable=var)
     c.grid(column=0, padx=5, pady=5)

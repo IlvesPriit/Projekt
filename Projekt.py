@@ -1,9 +1,10 @@
 from tkinter import *
 from tkinter import ttk
-from time import time
 from stopp_nupp import stopp
-from stopp_nupp import aeg
-from lisa_to_do import do_do
+from stopp_nupp import start
+#from stopp_nupp import aeg
+#from lisa_to_do import do_do
+#from ristike import unusta
 from time import *
 
 
@@ -12,27 +13,33 @@ def do_do(raam):
     c = Checkbutton(raam, variable=var)
     c.grid(column=0, padx=5, pady=5)
     c.configure(background=colour)
+
     rida= c.grid_info()["row"]
-    # tegevus = Label(raam, text="tegevus:")
-    # tegevus.grid(column=1, row = rida, padx=5, pady=5)
-    # aeg = Label(raam, text="aeg:")
-    # aeg.grid(column=3, row = rida,  padx=5, pady=5)
     #võtame entry boxidest sisestatu
     tegevuse_sisestamine_tulemus = Label(raam, text=tegevuse_sisestamine.get())
     tegevuse_sisestamine_tulemus.grid(column=2, row = rida, padx=5, pady=5)
     tegevuse_sisestamine_tulemus.configure(background=colour)
+
     aja_sisestamine_tulemus = Label(raam, text=aja_sisestamine.get())
     aja_sisestamine_tulemus.grid(column=3, row = rida,  padx=5, pady=5)
     aja_sisestamine_tulemus.configure(background=colour)
+
     
     # soovime, et nupp veniks nii laiuses kui ka kõrguses
     a = time()
     nupp = Button(raam, text=" Start ",bg="green", command=lambda : stopp(raam, rida))
     #sulgudesse vaja ka command = alustab aja lugemist, mis on funktsioonis aeg
     nupp.grid(column=4, row = rida,  padx=5, pady=6)
+
     # soovime, et nupp muutuks peale vajutust
     progress = ttk.Progressbar(raam, orient='horizontal', length= 75, mode = 'indeterminate')
     progress.grid(column=6, row=rida, padx=5, pady=5)
+
+
+    #nupp, et soovimatud to_do-d kustutada
+    #ristike = Button(raam, text=" X ",bg="white", command=lambda: unusta(c, tegevuse_sisestamine_tulemus,aja_sisestamine_tulemus, nupp, progress, ristike))
+    #ristike.grid(column=7, row=rida, padx=5, pady=5)
+    #ristike.pack()
 
 
 #võta see muutuja i ning lisa see õigetele ridadele, sest iga dodo peab olema ju uuel
