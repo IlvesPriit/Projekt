@@ -13,8 +13,10 @@ def do_do(raam):
     rida= c.grid_info()["row"]
     tegevus = ttk.Label(raam, text="tegevus")
     tegevus.grid(column=2, row = rida, padx=5, pady=5)
+    tegevus.configure(background=colour)
     aeg = ttk.Label(raam, text="aeg")
     aeg.grid(column=3, row = rida,  padx=5, pady=5)
+    aeg.configure(background=colour)
     # soovime, et nupp veniks nii laiuses kui ka kõrguses
     a = time()
     nupp = ttk.Button(raam, text="Start", command=lambda : stopp(raam, rida))
@@ -23,4 +25,5 @@ def do_do(raam):
     # soovime, et nupp muutuks peale vajutust
     progress = ttk.Progressbar(raam, orient='horizontal', length= 100, mode = 'indeterminate')
     progress.grid(column=5, row=rida, padx=5, pady=5)
+    progress.configure(background=colour)
 
