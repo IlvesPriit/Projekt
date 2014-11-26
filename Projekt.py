@@ -7,7 +7,7 @@ from stopp_nupp import stopp
 from ristike import unusta
 from time import *
 from tkinter import colorchooser
-
+from tkinter import font
 
 def do_do(raam, colour):
     var = IntVar()
@@ -61,8 +61,6 @@ menu.add_cascade(label="Tulevikus", menu=filemenu)
 menu.add_cascade(label="Arhiiv", menu=filemenu)
 menu.add_cascade(label="Arhiiv", menu=filemenu)
 
-
-
 #kujunduse värvide kompott
 def värv():
     color = colorchooser.askcolor()
@@ -73,10 +71,15 @@ def värv():
     print(colour)
 
 colour = "white"
-colors = Menu(menu)
-menu.add_cascade(label="Kujundus", menu=colors)
-colors.add_command(label='Värv', command=värv)
-print(colour)
+kujundus = Menu(menu)
+menu.add_cascade(label="Kujundus", menu=kujundus)
+kujundus.add_command(label='Värv', command=värv)
+
+#kujunduse fontide kompott
+#def fondi_valik():
+
+kujundus.add_command(label='Font', command=värv)
+
 filemenu.add_command(label="Exit", command=raam.quit)
 
 
@@ -89,14 +92,14 @@ f = open("backg.gif")
 #img = raam.create_image(450, 80, image=bg)
 
 #rea pealkiri
-font = "Times"
+kiri = "Times"
 rea_pealkiri = Label(raam, text="Tegevus", background=colour)
 rea_pealkiri.grid(column=0, row=0, padx=5, pady=5)
 
 #sisestamise kastikesed
-tegevuse_sisestamine = Entry(raam, cursor="pencil", font=font,justify=CENTER)
+tegevuse_sisestamine = Entry(raam, cursor="pencil", font=kiri,justify=CENTER)
 tegevuse_sisestamine.grid(column=2, row=0, padx=10, pady=10)
-aja_sisestamine = Entry(raam, cursor="pencil",font=font, justify=CENTER)
+aja_sisestamine = Entry(raam, cursor="pencil",font=kiri, justify=CENTER)
 aja_sisestamine.grid(column=3, row=0, padx=10, pady=10)
 
 nupp = Button(raam, cursor="hand2",text="  Lisa  ",bg="SkyBlue2", command=lambda: do_do(raam, colour))
