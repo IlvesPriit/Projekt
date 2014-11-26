@@ -1,5 +1,5 @@
 from tkinter import *
-
+from tkinter import colorchooser
 
 root = Tk()
 root.title("Pack is BEST!!!")
@@ -7,6 +7,10 @@ root.title("Pack is BEST!!!")
 l = Label(root, text="todo")
 l.pack()
 
+
+color = colorchooser.askcolor()
+color_name = color[1]    #to pick up the color name in HTML notation, i.e. the 2nd element of the tuple returned by the colorchooser
+root.configure(background=color_name)
 
 def forget():
     d.pack_forget()

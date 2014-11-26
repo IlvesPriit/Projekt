@@ -3,7 +3,7 @@ from tkinter import *
 #risti nupu funktsioonid
 
 def unusta(c, tegevuse_sisestamine_tulemus,aja_sisestamine_tulemus, nupp, progress, ristike):
-    c.path()
+    c.pack()
     #tegevuse_sisestamine_tulemus.grid_remove()
     tegevuse_sisestamine_tulemus.pack_forget()
     #aja_sisestamine_tulemus.grid_remove()
