@@ -17,7 +17,6 @@ menu.add_cascade(label="Homme", command=lambda: tomorrow(colour))
 menu.add_cascade(label="Tulevikus", command=lambda: future(colour))
 menu.add_cascade(label="Statistika", command=lambda: info(colour))
 
-
 #kujunduse värvide kompott
 def värv():
     color = colorchooser.askcolor()
