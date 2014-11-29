@@ -11,7 +11,6 @@ raam.title("To Do")
 
 menu = Menu(raam)
 raam.config(menu=menu)
-filemenu = Menu(menu)
 menu.add_cascade(label="Homme", command=lambda: tomorrow(colour))
 #see lisab sinna menüü alla mingeid vidinaid
 menu.add_cascade(label="Tulevikus", command=lambda: future(colour))
@@ -25,22 +24,14 @@ def värv():
     global colour
     colour = color_name
     print(colour)
+    raam.update_idletasks()
 
 colour = "white"
-kujundus = Menu(menu)
-menu.add_cascade(label="Kujundus", menu=kujundus)
-kujundus.add_command(label='Värv', command=värv)
-
-#kujunduse fontide kompott
-#def fondi_valik():
-
-kujundus.add_command(label='Font', command=värv)
-filemenu.add_command(label="Exit", command=raam.quit)
-
+menu.add_cascade(label="Raami värv", command=värv)
 
 #rea pealkiri
 kiri = "Calibri"
-rea_pealkiri = Label(raam, text="Tegevus:", font=kiri, background=colour)
+rea_pealkiri = Label(raam, text="Tegevus:", font=kiri, background="white")
 rea_pealkiri.grid(column=0, row=0, padx=5, pady=5)
 
 #tegevuse sisestamise kastikesed
@@ -48,7 +39,7 @@ tegevuse_sisestamine = Entry(raam, cursor="pencil", font=kiri,justify=CENTER)
 tegevuse_sisestamine.grid(column=1, row=0, padx=10, pady=10)
 
 #aja lisestamise kastike
-rea_pealkiri = Label(raam, text="Aeg(00:00:00):", font=kiri, background=colour)
+rea_pealkiri = Label(raam, text="Aeg(00:00:00):", font=kiri, background="white")
 rea_pealkiri.grid(column=2, row=0, padx=5, pady=5)
 aja_sisestamine = Entry(raam, cursor="pencil",font=kiri, justify=CENTER)
 aja_sisestamine.grid(column=3, row=0, padx=10, pady=10)
@@ -59,7 +50,7 @@ nupp.grid(column=4, row= 0, padx=5, pady=6)
 
 
 #viimasel real on nupp "salvesta"
-salvestan = Button(raam, cursor="hand2", text=" Salvesta ",font=kiri, bg="RoyalBlue2" )
+salvestan = Button(raam, cursor="hand2", text=" Salvesta ",font=kiri, bg="RoyalBlue2")
 salvestan.grid(column=5, row=0, padx=5, pady=6)
 
 # soovime, et akna suuruse muutmisel muudetakse veeru 1 ja rea 1 mõõtmeid
