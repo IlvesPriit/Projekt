@@ -1,9 +1,9 @@
 from tkinter import *
-from lisa_to_do import do_do
 from tkinter import colorchooser
 from Homme import tomorrow
 from Tulevikus import future
 from Statistika import info
+from lisa_to_do import do_do
 
 #tekitame raami
 raam = Tk()
@@ -52,6 +52,7 @@ rea_pealkiri = Label(raam, text="Aeg(00:00:00):", font=kiri, background=colour)
 rea_pealkiri.grid(column=2, row=0, padx=5, pady=5)
 aja_sisestamine = Entry(raam, cursor="pencil",font=kiri, justify=CENTER)
 aja_sisestamine.grid(column=3, row=0, padx=10, pady=10)
+
 
 nupp = Button(raam, cursor="hand2",text="  Lisa  ",font=kiri, bg="SkyBlue2", command=lambda: do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri))
 nupp.grid(column=4, row= 0, padx=5, pady=6)

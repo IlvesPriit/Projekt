@@ -1,8 +1,8 @@
 from tkinter import *
 from tkinter import ttk
 from time import *
+from stopp_nupp import stardinupp
 
-from stopp_nupp import stopp
 
 #funktsioon üheks linnukesega tegevuse reaks
 #see värk peaks käivituma iga kord kui vajutada nuppu 'lisa'
@@ -32,7 +32,7 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri):
 
     # soovime, et nupp veniks nii laiuses kui ka kõrguses
     a = time()
-    nupp = Button(raam,cursor="hand2", text=" Start ",font=kiri, bg="lime green", command=lambda : stopp(raam, rida, kiri, pattern, clock))
+    nupp = Button(raam,cursor="hand2", text=" Start ",font=kiri, bg="lime green", command=lambda : stardinupp(raam, rida, kiri, pattern, clock,olek))
     #sulgudesse vaja ka command = alustab aja lugemist, mis on funktsioonis aeg
     nupp.grid(column=4, row = rida,  padx=5, pady=6)
 
