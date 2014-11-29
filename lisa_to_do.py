@@ -16,12 +16,23 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri):
     tegevuse_sisestamine_tulemus = Label(raam, text=tegevuse_sisestamine.get(), background=colour, font=kiri)
     tegevuse_sisestamine_tulemus.grid(column=1, row = rida, padx=5, pady=5)
 
-    aja_sisestamine_tulemus = Label(raam, text=aja_sisestamine.get(), background=colour, font=kiri)
-    aja_sisestamine_tulemus.grid(column=3, row = rida,  padx=5, pady=5)
+    aja_sisestamine_tulemus = Label(raam, text="Ennustus = "+ aja_sisestamine.get(), background=colour, font=kiri)
+    aja_sisestamine_tulemus.grid(column=2, row = rida,  padx=5, pady=5)
+
+    #see timeri asi
+    global olek
+    olek = False
+    global timer
+    timer = [0, 0, 0]
+    global pattern
+    pattern = '{0:02d}:{1:02d}:{2:02d}'
+    global clock
+    clock = Label(raam, text="00:00:00", background=colour, font=kiri)
+    clock.grid(column=3, row = rida,  padx=5, pady=6)
 
     # soovime, et nupp veniks nii laiuses kui ka kõrguses
     a = time()
-    nupp = Button(raam,cursor="hand2", text=" Start ",font=kiri, bg="lime green", command=lambda : stopp(raam, rida, kiri))
+    nupp = Button(raam,cursor="hand2", text=" Start ",font=kiri, bg="lime green", command=lambda : stopp(raam, rida, kiri, pattern, clock))
     #sulgudesse vaja ka command = alustab aja lugemist, mis on funktsioonis aeg
     nupp.grid(column=4, row = rida,  padx=5, pady=6)
 
@@ -30,7 +41,8 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri):
     progress.grid(column=5, row=rida, padx=5, pady=5)
 
 
-    #nupp, et soovimatud to_do-d kustutada
-    ristike = Button(raam, text=" X ",bg="white", command=lambda: unusta(c, tegevuse_sisestamine_tulemus,aja_sisestamine_tulemus, nupp, progress, ristike))
-    ristike.grid(column=6, row=rida, padx=5, pady=5)
-    #ristike.pack()
+    # #nupp, et soovimatud to_do-d kustutada
+    # ristike = Button(raam, text=" X ",bg="white", command=lambda: unusta(c, tegevuse_sisestamine_tulemus,aja_sisestamine_tulemus, nupp, progress, ristike))
+    # ristike.grid(column=6, row=rida, padx=5, pady=5)
+    # #ristike.pack()
+
