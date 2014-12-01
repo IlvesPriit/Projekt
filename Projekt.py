@@ -5,10 +5,12 @@ from Tulevikus import future
 from Statistika import info
 from lisa_to_do import do_do
 
+
+
 #tekitame raami
 raam = Tk()
 raam.title("To Do")
-
+raam.configure(background="white")
 menu = Menu(raam)
 raam.config(menu=menu)
 menu.add_cascade(label="Homme", command=lambda: tomorrow(colour))
@@ -24,7 +26,7 @@ def värv():
     global colour
     colour = color_name
     print(colour)
-    raam.update_idletasks()
+
 
 colour = "white"
 menu.add_cascade(label="Raami värv", command=värv)

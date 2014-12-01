@@ -1,7 +1,8 @@
 from tkinter import *
 from tkinter import ttk
-from time import *
 from stopp_nupp import stardinupp
+from stopp_nupp import stopp
+from ristike import unusta
 
 
 #funktsioon üheks linnukesega tegevuse reaks
@@ -26,13 +27,12 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri):
     timer = [0, 0, 0]
     global pattern
     pattern = '{0:02d}:{1:02d}:{2:02d}'
-    global clock
+    #global clock
     clock = Label(raam, text="00:00:00", background=colour, font=kiri)
     clock.grid(column=3, row = rida,  padx=5, pady=6)
 
     # soovime, et nupp veniks nii laiuses kui ka kõrguses
-    a = time()
-    nupp = Button(raam,cursor="hand2", text=" Start ",font=kiri, bg="lime green", command=lambda : stardinupp(raam, rida, kiri, pattern, clock,olek))
+    nupp = Button(raam,cursor="hand2", text=" Start ",font=kiri, bg="lime green", command=lambda : stopp(raam, rida, kiri))
     #sulgudesse vaja ka command = alustab aja lugemist, mis on funktsioonis aeg
     nupp.grid(column=4, row = rida,  padx=5, pady=6)
 
@@ -42,7 +42,7 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri):
 
 
     # #nupp, et soovimatud to_do-d kustutada
-    # ristike = Button(raam, text=" X ",bg="white", command=lambda: unusta(c, tegevuse_sisestamine_tulemus,aja_sisestamine_tulemus, nupp, progress, ristike))
-    # ristike.grid(column=6, row=rida, padx=5, pady=5)
-    # #ristike.pack()
+    ristike = Button(raam, text=" X ",bg="MediumVioletRed", command=lambda: unusta(clock,c, tegevuse_sisestamine_tulemus,aja_sisestamine_tulemus, nupp, progress, ristike))
+    ristike.grid(column=6, row=rida, padx=5, pady=5)
+
 
