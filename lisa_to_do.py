@@ -1,8 +1,9 @@
 from tkinter import *
 from tkinter import ttk
-from stopp_nupp import stardinupp
+#from stopp_nupp import stardinupp
 from stopp_nupp import stopp
 from ristike import unusta
+
 
 
 #funktsioon üheks linnukesega tegevuse reaks
@@ -32,7 +33,7 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri):
     clock.grid(column=3, row = rida,  padx=5, pady=6)
 
     # soovime, et nupp veniks nii laiuses kui ka kõrguses
-    nupp = Button(raam,cursor="hand2", text=" Start ",font=kiri, bg="lime green", command=lambda : stopp(raam, rida, kiri))
+    nupp = Button(raam,cursor="hand2", text=" Start ",font=kiri, bg="lime green", command=lambda : stopp(raam,rida,kiri))
     #sulgudesse vaja ka command = alustab aja lugemist, mis on funktsioonis aeg
     nupp.grid(column=4, row = rida,  padx=5, pady=6)
 
@@ -40,9 +41,8 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri):
     progress = ttk.Progressbar(raam, orient='horizontal', length= 75, mode = 'indeterminate')
     progress.grid(column=5, row=rida, padx=5, pady=5)
 
-
     # #nupp, et soovimatud to_do-d kustutada
-    ristike = Button(raam, text=" X ",bg="MediumVioletRed", command=lambda: unusta(clock,c, tegevuse_sisestamine_tulemus,aja_sisestamine_tulemus, nupp, progress, ristike))
+    ristike = Button(raam, text=" X ",bg="MediumVioletRed", command=lambda: unusta(clock,c,tegevuse_sisestamine_tulemus,aja_sisestamine_tulemus,nupp,progress,ristike))
     ristike.grid(column=6, row=rida, padx=5, pady=5)
 
 
