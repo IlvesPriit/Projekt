@@ -29,7 +29,7 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri):
     global pattern
     pattern = '{0:02d}:{1:02d}:{2:02d}'
     #global clock
-    clock = Label(raam, text="00:00:00", background=colour, font=kiri)
+    clock = Label(raam, text=aja_sisestamine.get(), background=colour, font=kiri)
     clock.grid(column=3, row = rida,  padx=5, pady=6)
 
     # soovime, et nupp veniks nii laiuses kui ka kõrguses

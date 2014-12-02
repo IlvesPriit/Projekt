@@ -8,7 +8,6 @@ def countdown2():
         # sekund juurde
         timer[2] += 1
 
-
         if (timer[2] >= 60):
             timer[2] = 0
             timer[1] += 1
