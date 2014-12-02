@@ -6,7 +6,6 @@ def info(colour):
     info_aken = Tk()
     info_aken.title("Statistika")
     info_aken.configure(background=colour)
-
     localtime = time.localtime(time.time())
     juba_struktureeritud = ctime()
     #rea pealkiri
@@ -26,6 +25,13 @@ def info(colour):
     #
     # nupp = Button(tulevikus, cursor="hand2",text="  Lisa  ",font=kiri, bg="SkyBlue2", command=lambda: do_do(tulevikus, colour, tegevuse_sisestamine, aja_sisestamine, kiri))
     # nupp.grid(column=4, row= 0, padx=5, pady=6)
+
+    #teeme ühe graafiku
+    sektor_diagramm = Canvas(info_aken, bg="white", width=400, height=400)
+    sektor_diagramm.grid(column=3, row=3, padx=5, pady=6)
+    coord = 390, 390, 10, 10
+    sektor_diagramm.create_arc(coord, start=0, extent=180, fill="purple", activefill="blue", outline="white")
+    sektor_diagramm.create_arc(coord, start=180, extent=90, fill="pink", activefill="blue", outline="white")
 
     # soovime, et akna suuruse muutmisel muudetakse veeru 1 ja rea 1 mõõtmeid
     info_aken.columnconfigure(10, weight=10)

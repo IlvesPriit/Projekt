@@ -31,7 +31,7 @@ colour = "white"
 menu.add_cascade(label="Raami värv", command=värv)
 
 #rea pealkiri
-kiri = "Calibri"
+kiri = "Purisa"
 rea_pealkiri = Label(raam, text="Tegevus:", font=kiri, background="white")
 rea_pealkiri.grid(column=0, row=0, padx=5, pady=5)
 
