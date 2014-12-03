@@ -1,6 +1,7 @@
 
 import tkinter as tk
 
+# see oleks siis kui asi 0 tiksub aga ei oska rakendada seda veel 
 def countdown2():
     if (olek):
         global timer
@@ -37,17 +38,7 @@ def countdown():
                 timer[0]=timer[0]-1
                 timer[1]=59
                 timer[2]=59
-        '''else:
-            timer[2] += 1
 
-            if (timer[2] >= 60):
-                timer[2] = 0
-                timer[1] += 1
-
-            if (timer[1] >= 60):
-                timer[0] += 1
-                timer[1] = 0
-            
         timeString = pattern.format(timer[0], timer[1], timer[2])
         timeText.configure(text=timeString)
     root.after(1000, countdown)
