@@ -1,31 +1,13 @@
-from tkinter import *
-from tkinter import colorchooser
+ajad= ["00:20:30", "00:30:50", "01:40:00"]
+ajad_minutites = []
+for aeg in ajad:
+    jarjend = aeg.split(":")
+    loppjarjend= []
+    for i in jarjend:
+        loppjarjend +=[int(i)]
+    print(loppjarjend)
 
-root = Tk()
-root.title("Pack is BEST!!!")
-
-l = Label(root, text="todo")
-l.pack()
-
-
-color = colorchooser.askcolor()
-color_name = color[1]    #to pick up the color name in HTML notation, i.e. the 2nd element of the tuple returned by the colorchooser
-root.configure(background=color_name)
-
-def forget():
-    d.pack_forget()
-def unusta():
-    b.pack_forget()
-
-def remember():
-      l.pack()
-
-
-b = Button(root, text=" X ", command=unusta)
-b.pack()
-# b = Button(root, text="Wait, I still need you", command=remember)
-# b.pack()
-d = Button(root, text="Wait, I still need you", command=forget)
-d.pack()
-
-root.mainloop()
+    #aja_string = muster.format(timer[0], timer[1], timer[2])
+    summa = loppjarjend[0]*60 + loppjarjend[1] + loppjarjend[2]%60
+    ajad_minutites.append(summa)
+print(ajad_minutites)

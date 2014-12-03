@@ -4,18 +4,20 @@ from Homme import tomorrow
 from Tulevikus import future
 from Statistika import info
 from lisa_to_do import do_do
-#from stopp_nupp import stopp
+import csv
 
 #tekitame raami
 raam = Tk()
 raam.title("To Do")
 raam.configure(background="white")
+
+#teeme menüü
 menu = Menu(raam)
 raam.config(menu=menu)
 menu.add_cascade(label="Homme", command=lambda: tomorrow(colour))
 #see lisab sinna menüü alla mingeid vidinaid
 menu.add_cascade(label="Tulevikus", command=lambda: future(colour))
-menu.add_cascade(label="Statistika", command=lambda: info(colour))
+menu.add_cascade(label="Statistika", command=lambda: info(colour, ajad))
 
 #kujunduse värvide kompott
 def värv():
@@ -35,9 +37,11 @@ kiri = "Purisa"
 rea_pealkiri = Label(raam, text="Tegevus:", font=kiri, background="white")
 rea_pealkiri.grid(column=0, row=0, padx=5, pady=5)
 
+
 #tegevuse sisestamise kastikesed
 tegevuse_sisestamine = Entry(raam, cursor="pencil", font=kiri,justify=CENTER)
 tegevuse_sisestamine.grid(column=1, row=0, padx=10, pady=10)
+
 
 #aja lisestamise kastike
 rea_pealkiri = Label(raam, text="Aeg(00:00:00):", font=kiri, background="white")
@@ -51,13 +55,39 @@ nupp =Button(raam, cursor="hand2", text="  Lisa  ",
               command=lambda: do_do(raam, colour,
                                     tegevuse_sisestamine,
                                     aja_sisestamine,
-                                    kiri))
+                                    kiri, ajad))
 nupp.grid(column=4, row= 0, padx=5, pady=6)
 
+#salvestamine faili
+class salvestan_tegevused:
+    def __init__(self):
+        self._aeg = aja_sisestamine.get()
 
+    def getCSV(self):
+        return str(self._aeg)
+
+    def __str__(self):
+        return "[Aeg:" + self._aeg + "]"
+
+    def salvestati(failinimi):
+        f = open(failinimi, "w")
+        f.write(ajad.getCSV() + "\n")
+
+    def laadi(failinimi):
+        f = open(failinimi)
+        for rida in f:
+            ajad.append(rida)
+
+#aegade jaoks järjend
+ajad = []
+failinimi = "todo.txt"
 #viimasel real on nupp "salvesta"
-salvestan = Button(raam, cursor="hand2", text=" Salvesta ",font=kiri, bg="RoyalBlue2")
+salvestan = Button(raam, cursor="hand2",
+                   text=" Salvesta ",font=kiri,
+                   bg="RoyalBlue2", command = salvestan_tegevused)
 salvestan.grid(column=5, row=0, padx=5, pady=6)
+
+
 
 # soovime, et akna suuruse muutmisel muudetakse veeru 1 ja rea 1 mõõtmeid
 raam.columnconfigure(10, weight=10)

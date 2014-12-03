@@ -5,10 +5,9 @@ from stopp_nupp import stopp
 from ristike import unusta
 
 
-
 #funktsioon üheks linnukesega tegevuse reaks
 #see värk peaks käivituma iga kord kui vajutada nuppu 'lisa'
-def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri):
+def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad):
     var = IntVar()
     c = Checkbutton(raam, activebackground=colour,background=colour, variable=var)
     c.grid(column=0, padx=5, pady=5)
@@ -17,10 +16,10 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri):
     #võtame entry boxidest sisestatu
     tegevuse_sisestamine_tulemus = Label(raam, text=tegevuse_sisestamine.get(), background=colour, font=kiri)
     tegevuse_sisestamine_tulemus.grid(column=1, row = rida, padx=5, pady=5)
-
+    ajad.append(aja_sisestamine.get())
     aja_sisestamine_tulemus = Label(raam, text="Ennustus = "+ aja_sisestamine.get(), background=colour, font=kiri)
     aja_sisestamine_tulemus.grid(column=2, row = rida,  padx=5, pady=5)
-
+    print(ajad)
     #see timeri asi
     global olek
     olek = False
@@ -44,5 +43,4 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri):
     # #nupp, et soovimatud to_do-d kustutada
     ristike = Button(raam, text=" X ",bg="MediumVioletRed", command=lambda: unusta(clock,c,tegevuse_sisestamine_tulemus,aja_sisestamine_tulemus,nupp,progress,ristike))
     ristike.grid(column=6, row=rida, padx=5, pady=5)
-
 
