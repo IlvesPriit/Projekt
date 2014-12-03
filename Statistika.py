@@ -2,7 +2,7 @@ from tkinter import *
 from time import *
 
 #kogu see statistika nd stuff
-def info(colour, ajad):
+def info(colour, ajad, tegevused):
     info_aken = Tk()
     info_aken.title("Statistika")
     info_aken.configure(background=colour)
@@ -30,11 +30,23 @@ def info(colour, ajad):
     minutite_summa=sum(ajad_minutites)
     print(ajad_minutites)
     print(minutite_summa)
+    tunnid_kokku = minutite_summa // 60
+    minutid_kokku = minutite_summa % 60
 
-    #teeme ühe graafiku
-    sektor_diagramm = Canvas(info_aken, bg="white", width=400, height=400)
-    sektor_diagramm.grid(column=3, row=3, padx=5, pady=6)
-    coord = 390, 390, 10, 10
+
+    #tegevused + ajad tuleb välja kirjutada igale reale
+    asukoht = 1
+    for i in range(len(tegevused)):
+        tegevus = Label(info_aken, text=tegevused[i], font=kiri, background=colour)
+        tegevus.grid(column=0, row=asukoht, padx=5, pady=5)
+        aeg = Label(info_aken, text= ajad[i], font=kiri, background=colour)
+        aeg.grid(column=1, row=asukoht, padx=5, pady=5)
+        asukoht += 1
+
+     #teeme ühe graafiku
+    sektor_diagramm = Canvas(info_aken, bg="white", width=200, height=200)
+    sektor_diagramm.grid(column=1, row=asukoht + 1, padx=5, pady=6)
+    coord = 190, 190, 10, 10
     varvid = ["chartreuse3", "pink", "blue4", "DeepPink4", "purple1",
               "IndianRed1", "magenta", "SeaGreen2", "violet",
               "brown2", "gray45", "blue", "green3", "firebrick1",
@@ -43,9 +55,10 @@ def info(colour, ajad):
     alguspunkt = 0
     for i in range(len(ajad_minutites)):
         lopppunkt = round(360/minutite_summa*ajad_minutites[i])
-        sektor_diagramm.create_arc(coord, start=alguspunkt, extent=lopppunkt, fill=varvid[i], activefill="blue", outline="white")
+        sektor_diagramm.create_arc(coord, start=alguspunkt, extent=lopppunkt, fill=varvid[i], activefill="gray50", outline="white")
         alguspunkt = alguspunkt + lopppunkt
-    # soovime, et akna suuruse muutmisel muudetakse veeru 1 ja rea 1 mõõtmeid
-    info_aken.columnconfigure(10, weight=10)
-    info_aken.rowconfigure(1, weight=10)
+
+    #tagasiside
+    tagasiside = Label(info_aken, text="Aega kulus kokku: " + str(tunnid_kokku) + "h " + str(minutid_kokku) + "min", font=kiri, background=colour)
+    tagasiside.grid(column=0, row=asukoht+1, padx=5, pady=5)
     info_aken.mainloop()

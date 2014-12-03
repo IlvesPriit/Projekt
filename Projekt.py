@@ -4,7 +4,6 @@ from Homme import tomorrow
 from Tulevikus import future
 from Statistika import info
 from lisa_to_do import do_do
-import csv
 
 #tekitame raami
 raam = Tk()
@@ -17,7 +16,7 @@ raam.config(menu=menu)
 menu.add_cascade(label="Homme", command=lambda: tomorrow(colour))
 #see lisab sinna menüü alla mingeid vidinaid
 menu.add_cascade(label="Tulevikus", command=lambda: future(colour))
-menu.add_cascade(label="Statistika", command=lambda: info(colour, ajad))
+menu.add_cascade(label="Statistika", command=lambda: info(colour, ajad, tegevused))
 
 #kujunduse värvide kompott
 def värv():
@@ -55,7 +54,7 @@ nupp =Button(raam, cursor="hand2", text="  Lisa  ",
               command=lambda: do_do(raam, colour,
                                     tegevuse_sisestamine,
                                     aja_sisestamine,
-                                    kiri, ajad))
+                                    kiri, ajad, tegevused))
 nupp.grid(column=4, row= 0, padx=5, pady=6)
 
 # #salvestamine faili
@@ -80,18 +79,14 @@ nupp.grid(column=4, row= 0, padx=5, pady=6)
 
 #aegade jaoks järjend
 ajad = []
+tegevused = []
 # failinimi = "todo.txt"
 # #viimasel real on nupp "salvesta"
 # salvestan = Button(raam, cursor="hand2",
 #                    text=" Salvesta ",font=kiri,
 #                    bg="RoyalBlue2", command = salvestan_tegevused)
 # salvestan.grid(column=5, row=0, padx=5, pady=6)
-#
 
-
-# soovime, et akna suuruse muutmisel muudetakse veeru 1 ja rea 1 mõõtmeid
-raam.columnconfigure(10, weight=10)
-raam.rowconfigure(1, weight=10)
 
 # kuvame akna ekraanile
 raam.mainloop()

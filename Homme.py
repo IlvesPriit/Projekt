@@ -27,6 +27,4 @@ def tomorrow(colour):
     nupp.grid(column=4, row= 0, padx=5, pady=6)
     
     # soovime, et akna suuruse muutmisel muudetakse veeru 1 ja rea 1 mõõtmeid
-    homme.columnconfigure(10, weight=10)
-    homme.rowconfigure(1, weight=10)
     homme.mainloop()
