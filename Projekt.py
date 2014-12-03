@@ -58,35 +58,35 @@ nupp =Button(raam, cursor="hand2", text="  Lisa  ",
                                     kiri, ajad))
 nupp.grid(column=4, row= 0, padx=5, pady=6)
 
-#salvestamine faili
-class salvestan_tegevused:
-    def __init__(self):
-        self._aeg = aja_sisestamine.get()
-
-    def getCSV(self):
-        return str(self._aeg)
-
-    def __str__(self):
-        return "[Aeg:" + self._aeg + "]"
-
-    def salvestati(failinimi):
-        f = open(failinimi, "w")
-        f.write(ajad.getCSV() + "\n")
-
-    def laadi(failinimi):
-        f = open(failinimi)
-        for rida in f:
-            ajad.append(rida)
+# #salvestamine faili
+# class salvestan_tegevused:
+#     def __init__(self):
+#         self._aeg = aja_sisestamine.get()
+#
+#     def getCSV(self):
+#         return str(self._aeg)
+#
+#     def __str__(self):
+#         return "[Aeg:" + self._aeg + "]"
+#
+#     def salvestati(failinimi):
+#         f = open(failinimi, "w")
+#         f.write(ajad.getCSV() + "\n")
+#
+#     def laadi(failinimi):
+#         f = open(failinimi)
+#         for rida in f:
+#             ajad.append(rida)
 
 #aegade jaoks järjend
 ajad = []
-failinimi = "todo.txt"
-#viimasel real on nupp "salvesta"
-salvestan = Button(raam, cursor="hand2",
-                   text=" Salvesta ",font=kiri,
-                   bg="RoyalBlue2", command = salvestan_tegevused)
-salvestan.grid(column=5, row=0, padx=5, pady=6)
-
+# failinimi = "todo.txt"
+# #viimasel real on nupp "salvesta"
+# salvestan = Button(raam, cursor="hand2",
+#                    text=" Salvesta ",font=kiri,
+#                    bg="RoyalBlue2", command = salvestan_tegevused)
+# salvestan.grid(column=5, row=0, padx=5, pady=6)
+#
 
 
 # soovime, et akna suuruse muutmisel muudetakse veeru 1 ja rea 1 mõõtmeid
