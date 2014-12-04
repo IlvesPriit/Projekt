@@ -7,6 +7,9 @@ def info(colour, ajad, tegevused):
     info_aken.title("Statistika")
     info_aken.configure(background=colour)
 
+    #skrollbar
+
+
     #rea pealkiri
     kiri = "Calibri"
     rea_pealkiri = Label(info_aken, text= ctime(), font=kiri, background=colour)

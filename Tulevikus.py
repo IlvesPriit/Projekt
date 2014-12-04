@@ -3,7 +3,7 @@ from lisa_to_do import do_do
 from tkinter import ttk
 #avaneb siis kui vajutada menüüs "homme"
 #tekitame raami
-def future(colour):
+def future(colour, ajad, tegevused):
     tulevikus = Tk()
     tulevikus.title("To Do Tomorrow")
     tulevikus.configure(background=colour)
@@ -22,10 +22,9 @@ def future(colour):
     aja_sisestamine = Entry(tulevikus, cursor="pencil",font=kiri, justify=CENTER)
     aja_sisestamine.grid(column=3, row=0, padx=10, pady=10)
 
-    nupp = Button(tulevikus, cursor="hand2",text="  Lisa  ",font=kiri, bg="SkyBlue2", command=lambda: do_do(tulevikus, colour, tegevuse_sisestamine, aja_sisestamine, kiri))
+    nupp = Button(tulevikus, cursor="hand2",text="  Lisa  ",
+                  font=kiri, bg="SkyBlue2",
+                  command=lambda: do_do(tulevikus, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegevused))
     nupp.grid(column=4, row= 0, padx=5, pady=6)
 
-    # soovime, et akna suuruse muutmisel muudetakse veeru 1 ja rea 1 mõõtmeid
-    homme.columnconfigure(10, weight=10)
-    homme.rowconfigure(1, weight=10)
-    homme.mainloop()
+    tulevikus.mainloop()

@@ -15,7 +15,7 @@ menu = Menu(raam)
 raam.config(menu=menu)
 menu.add_cascade(label="Homme", command=lambda: tomorrow(colour))
 #see lisab sinna menüü alla mingeid vidinaid
-menu.add_cascade(label="Tulevikus", command=lambda: future(colour))
+menu.add_cascade(label="Tulevikus", command=lambda: future(colour, ajad, tegevused))
 menu.add_cascade(label="Statistika", command=lambda: info(colour, ajad, tegevused))
 
 #kujunduse värvide kompott
