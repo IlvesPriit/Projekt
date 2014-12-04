@@ -24,7 +24,7 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegev
     tegevuse_sisestamine_tulemus = Label(raam, text=tegevuse_sisestamine.get(), background=colour, font=kiri)
     tegevuse_sisestamine_tulemus.grid(column=1, row = rida, padx=5, pady=5)
 
-    aja_sisestamine_tulemus = Label(raam, text="Ennustus = "+ aja_sisestamine.get(), background=colour, font=kiri)
+    aja_sisestamine_tulemus = Label(raam, text="Aeg:", background=colour, font=kiri)
     aja_sisestamine_tulemus.grid(column=2, row = rida,  padx=5, pady=5)
     print(ajad)
     #see timeri asi
