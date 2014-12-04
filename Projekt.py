@@ -16,7 +16,7 @@ raam.config(menu=menu)
 menu.add_cascade(label="Homme", command=lambda: tomorrow(colour))
 #see lisab sinna menüü alla mingeid vidinaid
 menu.add_cascade(label="Tulevikus", command=lambda: future(colour, ajad, tegevused))
-menu.add_cascade(label="Statistika", command=lambda: info(colour, ajad, tegevused))
+menu.add_cascade(label="Statistika", command=lambda: info(colour, ajad, tegevused, ennustatud_ajad))
 
 #kujunduse värvide kompott
 def värv():
@@ -54,7 +54,7 @@ nupp =Button(raam, cursor="hand2", text="  Lisa  ",
               command=lambda: do_do(raam, colour,
                                     tegevuse_sisestamine,
                                     aja_sisestamine,
-                                    kiri, ajad, tegevused))
+                                    kiri, ajad, tegevused, ennustatud_ajad))
 nupp.grid(column=4, row= 0, padx=5, pady=6)
 
 # #salvestamine faili
@@ -80,6 +80,7 @@ nupp.grid(column=4, row= 0, padx=5, pady=6)
 #aegade jaoks järjend
 ajad = []
 tegevused = []
+ennustatud_ajad = []
 # failinimi = "todo.txt"
 # #viimasel real on nupp "salvesta"
 # salvestan = Button(raam, cursor="hand2",

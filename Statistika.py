@@ -2,7 +2,7 @@ from tkinter import *
 from time import *
 
 #kogu see statistika nd stuff
-def info(colour, ajad, tegevused):
+def info(colour, ajad, tegevused, ennustatud_ajad):
     info_aken = Tk()
     info_aken.title("Statistika")
     info_aken.configure(background=colour)
@@ -15,10 +15,6 @@ def info(colour, ajad, tegevused):
     rea_pealkiri = Label(info_aken, text= ctime(), font=kiri, background=colour)
     rea_pealkiri.grid(column=0, row=0, padx=5, pady=5)
 
-    ## Need on need 2 muutujat, mis oleks vaja nt csv failist statistikasse toimetada (kõik tegvused ja nendele kulunud aeg!)
-    # tegevuse_sisestamine
-    # aja_sisestamine
-    #ajad= ["00:20:30", "00:30:50", "01:40:00"]
     ajad_minutites = []
     for aeg in ajad:
         jarjend = aeg.split(":")
@@ -26,15 +22,25 @@ def info(colour, ajad, tegevused):
         for i in jarjend:
             loppjarjend +=[int(i)]
         print(loppjarjend)
-
-        #aja_string = muster.format(timer[0], timer[1], timer[2])
         summa = loppjarjend[0]*60 + loppjarjend[1] + round(loppjarjend[2]/60)
         ajad_minutites.append(summa)
     minutite_summa=sum(ajad_minutites)
-    print(ajad_minutites)
-    print(minutite_summa)
     tunnid_kokku = minutite_summa // 60
     minutid_kokku = minutite_summa % 60
+
+    teisendatud_ennustus = []
+    for ennustus in ennustatud_ajad:
+        jarjend = ennustus.split(":")
+        loppjarjend = []
+        for osa in jarjend:
+            print(osa)
+            loppjarjend.append(int(osa))
+        summa = loppjarjend[0]*60 + loppjarjend[1] + round(loppjarjend[2]/60)
+        teisendatud_ennustus.append(summa)
+    ennustatud_min_sum =sum(teisendatud_ennustus)
+    ennustatud_h = ennustatud_min_sum // 60
+    ennustatud_min_kokku = ennustatud_min_sum % 60
+
 
     varvid = ["chartreuse3", "pink", "blue4", "DeepPink4", "purple1",
               "IndianRed1", "magenta", "SeaGreen2", "violet",
@@ -65,6 +71,10 @@ def info(colour, ajad, tegevused):
         alguspunkt = alguspunkt + lopppunkt
 
     #tagasiside
-    tagasiside = Label(info_aken, text="Aega kulus kokku: " + str(tunnid_kokku) + "h " + str(minutid_kokku) + "min", font=kiri, background=colour)
-    tagasiside.grid(column=0, row=asukoht+1, padx=5, pady=5)
+    planeeritud = Label(info_aken, text="Planeeritud aeg: " + str(tunnid_kokku) + "h " + str(minutid_kokku) + "min", font=kiri, background=colour)
+    planeeritud.grid(column=0, row=asukoht+1, padx=5, pady=5)
+
+    tegelik = Label(info_aken, text="Tegelik aeg: " + str(ennustatud_h) + "h " + str(ennustatud_min_kokku) + "min", font=kiri, background=colour)
+    tegelik.grid(column=0, row=asukoht+2, padx=5, pady=5)
+
     info_aken.mainloop()

@@ -7,15 +7,15 @@ from ristike import unusta
 
 #funktsioon üheks linnukesega tegevuse reaks
 #see värk peaks käivituma iga kord kui vajutada nuppu 'lisa'
-def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegevused):
-    def lisa_statistikasse(tegevuse_sisestamine, aja_sisestamine):
+def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegevused, ennustatud_ajad):
+    def lisa_statistikasse(tegevuse_sisestamine, aja_sisestamine, ennustatud_ajad):
         ajad.append(aja_sisestamine.get())
         tegevused.append(tegevuse_sisestamine.get())
-
+        ennustatud_ajad.append(aja_sisestamine.get())
     var = IntVar()
     c = Checkbutton(raam, activebackground=colour,
                     background=colour, variable=var,
-                    command=lambda: lisa_statistikasse(tegevuse_sisestamine, aja_sisestamine))
+                    command=lambda: lisa_statistikasse(tegevuse_sisestamine, aja_sisestamine, ennustatud_ajad))
     c.grid(column=0, padx=5, pady=5)
 
     rida= c.grid_info()["row"]
