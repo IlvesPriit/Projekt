@@ -1,11 +1,10 @@
 from tkinter import *
 from lisa_to_do import do_do
-from tkinter import ttk
 #avaneb siis kui vajutada menüüs "homme"
 #tekitame raami
-def future(colour, ajad, tegevused):
+def future(colour, ajad, tegevused, ennustatud_ajad):
     tulevikus = Tk()
-    tulevikus.title("To Do Tomorrow")
+    tulevikus.title("To Do One Day")
     tulevikus.configure(background=colour)
     #rea pealkiri
     kiri = "Calibri"
@@ -24,7 +23,7 @@ def future(colour, ajad, tegevused):
 
     nupp = Button(tulevikus, cursor="hand2",text="  Lisa  ",
                   font=kiri, bg="SkyBlue2",
-                  command=lambda: do_do(tulevikus, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegevused))
+                  command=lambda: do_do(tulevikus, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegevused, ennustatud_ajad))
     nupp.grid(column=4, row= 0, padx=5, pady=6)
 
     tulevikus.mainloop()
