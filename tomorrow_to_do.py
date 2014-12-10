@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-from stopp_nupp import stopp
+#from stopp_nupp import stopp
 from ristike import unusta
 from ristike import unusta_homne
 
