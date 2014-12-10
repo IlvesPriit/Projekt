@@ -48,7 +48,7 @@ olek2 = True
 def start():
     global olek
     olek = True
-
+    pauseButton.pack_forget()
 # pause
 def pause():
     global olek

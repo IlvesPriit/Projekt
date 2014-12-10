@@ -22,19 +22,19 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegev
     c = Checkbutton(raam, activebackground=colour,
                     background=colour, variable=var,
                     command=lambda: lisa_statistikasse(tegevuse_sisestamine, aja_sisestamine, ennustatud_ajad))
-    c.grid(column=0, padx=5, pady=5)
+    c.grid(column=0, padx=5, pady=6)
 
     rida= c.grid_info()["row"]
     #võtame entry boxidest sisestatu
 
     tegevuse_sisestamine_tulemus = Label(raam, text=tegevuse_sisestamine.get(), background=colour, font=kiri)
-    tegevuse_sisestamine_tulemus.grid(column=1, row = rida, padx=5, pady=5)
+    tegevuse_sisestamine_tulemus.grid(column=1, row = rida, padx=5, pady=6)
 
     aja_sisestamine_tulemus = Label(raam, text="Aeg:", background=colour, font=kiri)
-    aja_sisestamine_tulemus.grid(column=2, row = rida,  padx=5, pady=5)
+    aja_sisestamine_tulemus.grid(column=2, row = rida,  padx=5, pady=6)
     #print(ajad)
     aja_sisestamine_tulemus = Label(raam, text=aja_sisestamine.get(), background=colour, font=kiri)
-    aja_sisestamine_tulemus.grid(column=3, row = rida,  padx=5, pady=5)
+    aja_sisestamine_tulemus.grid(column=3, row = rida,  padx=5, pady=6)
 
 # TIMERI SEKTSIOONID    
 ####################################################################################################################################################
@@ -118,8 +118,8 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegev
         global stardi
 
         def stardi(raam,rida,kiri,n):
-            nupp = Button(raam,cursor="hand2",text=" stopp "+str(n),font=kiri,bg="lime green",command=lambda loomise_hetke_n=n: stopp(raam,rida,kiri,loomise_hetke_n))
-            nupp.grid(column=4, row = rida,  padx=5, pady=5)
+            nupp = Button(raam,cursor="hand2",text=" stopp "+str(n),font=kiri,bg="tomato",command=lambda loomise_hetke_n=n: stopp(raam,rida,kiri,loomise_hetke_n))
+            nupp.grid(column=4, row = rida,  padx=5, pady=6)
             aeg = aja_sisestamine.get()
             järjend = aeg.split(":")
             global lõppjärjend
@@ -130,38 +130,39 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegev
                 lõppjärjend +=[i]
             global timeText
             timeText = Label(raam, text=aeg, font=(50))
-            timeText.grid(column=3,row=rida,padx=5, pady=5)
+            timeText.grid(column=3,row=rida,padx=5, pady=6)
             global olek
             olek = True
             print(olek , " --vajutasid stardi-t")
-            
+            nupp.pack_forget()
             get_info(n,tegevuse_sisestamine_tulemus,aja_sisestamine,lõppjärjend)
-        #stardi(raam,rida,kiri,n)
+        #nupp.invoke() nupp on halb sest leidub juba projekt failis
+        stardi(raam,rida,kiri,n)
         #time.sleep(1)
-        #stopp(raam,rida,kiri,n)            
+        stopp(raam,rida,kiri,n)            
         countdown()
            
 
     # soovime, et nupp veniks nii laiuses kui ka kõrguses
-        nupp = Button(raam,cursor="hand2", text=" Start "+str(n),font=kiri, bg="lime green", command=lambda loomise_hetke_n=n : stardi(raam,rida,kiri,loomise_hetke_n))
+        nupp = Button(raam,cursor="hand2", text=" Start "+str(n),font=kiri, bg="lime green", command=lambda loomise_hetke_n=n : start(raam,rida,kiri,loomise_hetke_n))
     #sulgudesse vaja ka command = alustab aja lugemist, mis on funktsioonis aeg
-        nupp.grid(column=4, row = rida,  padx=5, pady=5)
+        nupp.grid(column=4, row = rida,  padx=5, pady=6)
 
     # soovime, et nupp muutuks peale vajutust
         progress = ttk.Progressbar(raam, orient='horizontal', length= 75, mode = 'indeterminate')
-        progress.grid(column=5, row=rida, padx=5, pady=5)
+        progress.grid(column=5, row=rida, padx=5, pady=6)
 
     # #nupp, et soovimatud to_do-d kustutada
         ristike = Button(raam, text=" X ",bg="MediumVioletRed", command=lambda: unusta(clock,c,tegevuse_sisestamine_tulemus,aja_sisestamine_tulemus,nupp,progress,ristike))
-        ristike.grid(column=6, row=rida, padx=5, pady=5)
+        ristike.grid(column=6, row=rida, padx=5, pady=6)
         
 #######################################################################################################################################################################
     elif n == 2:
         global stardi2
 
         def stardi2(raam,rida,kiri,n):
-            nupp = Button(raam,cursor="hand2",text=" stopp "+str(n),font=kiri,bg="lime green",command=lambda loomise_hetke_n=n : stopp2(raam,rida,kiri,loomise_hetke_n))
-            nupp.grid(column=4, row = rida,  padx=5, pady=5)
+            nupp = Button(raam,cursor="hand2",text=" stopp "+str(n),font=kiri,bg="tomato",command=lambda loomise_hetke_n=n : stopp2(raam,rida,kiri,loomise_hetke_n))
+            nupp.grid(column=4, row = rida,  padx=5, pady=6)
             aeg = aja_sisestamine.get()
             järjend = aeg.split(":")
             global lõppjärjend2
@@ -172,31 +173,31 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegev
                 lõppjärjend2 +=[i]
             global timeText2
             timeText2 = Label(raam, text=aeg, font=(50))
-            timeText2.grid(column=3,row=rida,padx=5, pady=5)
+            timeText2.grid(column=3,row=rida,padx=5, pady=6)
             global olek2
             olek2 = True
             print(olek2 , " --vajutasid stardi2-t")
 
             get_info(n,tegevuse_sisestamine_tulemus,aja_sisestamine,lõppjärjend2)
-        #stardi2(raam,rida,kiri,n)
+        stardi2(raam,rida,kiri,n)
         #time.sleep(1)
-        #stopp2(raam,rida,kiri,n)        
+        stopp2(raam,rida,kiri,n)        
         countdown2()
 
     
 
     # soovime, et nupp veniks nii laiuses kui ka kõrguses
-        nupp = Button(raam,cursor="hand2", text=" Start "+str(n),font=kiri, bg="lime green", command=lambda loomise_hetke_n=n: stardi2(raam,rida,kiri,loomise_hetke_n))
+        nupp = Button(raam,cursor="hand2", text=" Start "+str(n),font=kiri, bg="lime green", command=lambda loomise_hetke_n=n: start2(raam,rida,kiri,loomise_hetke_n))
     #sulgudesse vaja ka command = alustab aja lugemist, mis on funktsioonis aeg
-        nupp.grid(column=4, row = rida,  padx=5, pady=5)
+        nupp.grid(column=4, row = rida,  padx=5, pady=6)
 
     # soovime, et nupp muutuks peale vajutust
         progress = ttk.Progressbar(raam, orient='horizontal', length= 75, mode = 'indeterminate')
-        progress.grid(column=5, row=rida, padx=5, pady=5)
+        progress.grid(column=5, row=rida, padx=5, pady=6)
 
     # #nupp, et soovimatud to_do-d kustutada
         ristike = Button(raam, text=" X ",bg="MediumVioletRed", command=lambda: unusta(clock,c,tegevuse_sisestamine_tulemus,aja_sisestamine_tulemus,nupp,progress,ristike))
-        ristike.grid(column=6, row=rida, padx=5, pady=5)
+        ristike.grid(column=6, row=rida, padx=5, pady=6)
         
 ##################################################################################################################################################################
 
@@ -204,8 +205,8 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegev
         global stardi3
 
         def stardi3(raam,rida,kiri,n):
-            nupp = Button(raam,cursor="hand2",text=" stopp "+str(n),font=kiri,bg="lime green",command=lambda loomise_hetke_n=n : stopp3(raam,rida,kiri,loomise_hetke_n))
-            nupp.grid(column=4, row = rida,  padx=5, pady=5)
+            nupp = Button(raam,cursor="hand2",text=" stopp "+str(n),font=kiri,bg="tomato",command=lambda loomise_hetke_n=n : stopp3(raam,rida,kiri,loomise_hetke_n))
+            nupp.grid(column=4, row = rida,  padx=5, pady=6)
             aeg = aja_sisestamine.get()
             järjend = aeg.split(":")
             global lõppjärjend3
@@ -216,31 +217,31 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegev
                 lõppjärjend3 +=[i]            
             global timeText3
             timeText3 = Label(raam, text=aeg, font=(50))
-            timeText3.grid(column=3,row=rida,padx=5, pady=5)
+            timeText3.grid(column=3,row=rida,padx=5, pady=6)
             global olek3
             olek3 = True
             print(olek3 , " --vajutasid stardi3-t")
 
             get_info(n,tegevuse_sisestamine_tulemus,aja_sisestamine,lõppjärjend3)
-        #stardi3(raam,rida,kiri,n)
+        stardi3(raam,rida,kiri,n)
         #time.sleep(1)
-        #stopp3(raam,rida,kiri,n)        
+        stopp3(raam,rida,kiri,n)        
         countdown3()
 
     
 
     # soovime, et nupp veniks nii laiuses kui ka kõrguses
-        nupp = Button(raam,cursor="hand2", text=" Start "+str(n),font=kiri, bg="lime green", command=lambda loomise_hetke_n=n: stardi3(raam,rida,kiri,loomise_hetke_n))
+        nupp = Button(raam,cursor="hand2", text=" Start "+str(n),font=kiri, bg="lime green", command=lambda loomise_hetke_n=n: start3(raam,rida,kiri,loomise_hetke_n))
     #sulgudesse vaja ka command = alustab aja lugemist, mis on funktsioonis aeg
-        nupp.grid(column=4, row = rida,  padx=5, pady=5)
+        nupp.grid(column=4, row = rida,  padx=5, pady=6)
 
     # soovime, et nupp muutuks peale vajutust
         progress = ttk.Progressbar(raam, orient='horizontal', length= 75, mode = 'indeterminate')
-        progress.grid(column=5, row=rida, padx=5, pady=5)
+        progress.grid(column=5, row=rida, padx=5, pady=6)
 
     # #nupp, et soovimatud to_do-d kustutada
         ristike = Button(raam, text=" X ",bg="MediumVioletRed", command=lambda: unusta(clock,c,tegevuse_sisestamine_tulemus,aja_sisestamine_tulemus,nupp,progress,ristike))
-        ristike.grid(column=6, row=rida, padx=5, pady=5)
+        ristike.grid(column=6, row=rida, padx=5, pady=6)
         
 #START STOP SEKTSIOONID
 #############################################################################################################################################
@@ -249,33 +250,34 @@ def start(raam,rida,kiri,n):
     global olek
     olek = True
     print(olek," --vajutasid start 1")
-    nupp = Button(raam,cursor="hand2",text=" Stopp"+str(n),font=kiri,bg="lime green",command=lambda loomise_hetke_n=n : stopp(raam,rida,kiri,loomise_hetke_n))
-    nupp.grid(column=4, row=rida,  padx=5, pady=5)
-
+    nupp = Button(raam,cursor="hand2",text=" Stopp"+str(n),font=kiri,bg="tomato",command=lambda loomise_hetke_n=n : stopp(raam,rida,kiri,loomise_hetke_n))
+    nupp.grid(column=4, row=rida,  padx=5, pady=6)
+    nupp.pack_forget()
 def stopp(raam,rida,kiri,n):
     global olek
     olek = False
     print(olek," --vajutasid stopp 1")
     # soovime, et nupp veniks nii laiuses kui ka kõrguses
-    nupp = Button(raam, cursor="hand2", text="Start"+str(n),font=kiri, bg="tomato", command=lambda loomise_hetke_n=n : start(raam,rida,kiri,loomise_hetke_n))
-    nupp.grid(column=4, row=rida, padx=5, pady=5)
+    nupp = Button(raam, cursor="hand2", text="Start"+str(n),font=kiri, bg="lime green", command=lambda loomise_hetke_n=n : start(raam,rida,kiri,loomise_hetke_n))
+    nupp.grid(column=4, row=rida, padx=5, pady=6)
+    nupp.pack_forget()
 ###########################################################################################################################################################################
     #teine start stopp sektsioon
 def start2(raam,rida,kiri,n):
     global olek2
     olek2 = True
     print(olek2," --vajutasid start 2")
-    nupp = Button(raam,cursor="hand2",text=" Stopp"+str(n),font=kiri,bg="lime green",command=lambda loomise_hetke_n=n : stopp2(raam,rida,kiri,loomise_hetke_n))
-    nupp.grid(column=4, row=rida,  padx=5, pady=5)
-
+    nupp = Button(raam,cursor="hand2",text=" Stopp"+str(n),font=kiri,bg="tomato",command=lambda loomise_hetke_n=n : stopp2(raam,rida,kiri,loomise_hetke_n))
+    nupp.grid(column=4, row=rida,  padx=5, pady=6)
+    nupp.pack_forget()
 def stopp2(raam,rida,kiri,n):
     global olek2
     olek2 = False
     print(olek2," --vajutasid stopp 2")
     # soovime, et nupp veniks nii laiuses kui ka kõrguses
-    nupp = Button(raam, cursor="hand2", text="Start"+str(n),font=kiri, bg="tomato", command=lambda loomise_hetke_n=n : start2(raam,rida,kiri,loomise_hetke_n))
-    nupp.grid(column=4, row=rida, padx=5, pady=5)
-
+    nupp = Button(raam, cursor="hand2", text="Start"+str(n),font=kiri, bg="lime green", command=lambda loomise_hetke_n=n : start2(raam,rida,kiri,loomise_hetke_n))
+    nupp.grid(column=4, row=rida, padx=5, pady=6)
+    nupp.pack_forget()
 ###########################################################################################################################################################################
 
     #kolmas start stopp sektsioon
@@ -283,17 +285,17 @@ def start3(raam,rida,kiri,n):
     global olek3
     olek3 = True
     print(olek3," --vajutasid start 3")
-    nupp = Button(raam,cursor="hand2",text=" Stopp"+str(n),font=kiri,bg="lime green",command=lambda loomise_hetke_n=n : stopp3(raam,rida,kiri,loomise_hetke_n))
-    nupp.grid(column=4, row=rida,  padx=5, pady=5)
-
+    nupp = Button(raam,cursor="hand2",text=" Stopp"+str(n),font=kiri,bg="tomato",command=lambda loomise_hetke_n=n : stopp3(raam,rida,kiri,loomise_hetke_n))
+    nupp.grid(column=4, row=rida,  padx=5, pady=6)
+    nupp.pack_forget()
 def stopp3(raam,rida,kiri,n):
     global olek3
     olek3 = False
     print(olek3," --vajutasid stopp 2")
     # soovime, et nupp veniks nii laiuses kui ka kõrguses
-    nupp = Button(raam, cursor="hand2", text="Start"+str(n),font=kiri, bg="tomato", command=lambda loomise_hetke_n=n : start3(raam,rida,kiri,loomise_hetke_n))
-    nupp.grid(column=4, row=rida, padx=5, pady=5)
-
+    nupp = Button(raam, cursor="hand2", text="Start"+str(n),font=kiri, bg="lime green", command=lambda loomise_hetke_n=n : start3(raam,rida,kiri,loomise_hetke_n))
+    nupp.grid(column=4, row=rida, padx=5, pady=6)
+    nupp.pack_forget()
 ###########################################################################################################################################################################
     
 sõnastik = {}
