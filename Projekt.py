@@ -5,6 +5,7 @@ from Homme import tomorrow
 from Tulevikus import future
 from Statistika import info
 from lisa_to_do import do_do
+from lisa_to_do import n
 
 #tekitame raami
 raam = Tk()
@@ -13,13 +14,49 @@ raam.configure(background="white")
 
 #teeme menüü
 menu = Menu(raam)
+menu = Menu(menu,tearoff=0)
 raam.config(menu=menu)
-menu.add_cascade(label="Homme", command=lambda: tomorrow(colour))
+
+def sulge():
+    salvestaAndmebaas()
+    raam.destroy()
+
+#aegade jaoks järjend
+ajad = []
+tegevused = []
+ennustatud_ajad = []
+def salvestaAndmebaas():
+    fail = open('andmebaas.csv','w')
+    fail.write("n;tegevuse_sisestamine_tulemus;aja_sisestamine;lõppjärjend\n")
+    if ajad ==[] :
+        fail.close()
+    else:
+        for i in range (len(ajad)):
+            fail.write(str(i+1)+";"+tegevused[i]+";"+ennustatud_ajad[i]+";"+ajad[i]+"\n")
+        fail.close()
+
+def LaeAndmebaas():
+    fail = open('andmebaas.csv','r')
+    for i in fail:
+        if i == "n;tegevuse_sisestamine_tulemus;aja_sisestamine;lõppjärjend\n":
+            continue
+        järjend= i.split(";")
+        n = järjend[0]
+        ajad=järjend[1]
+        tegevused=järjend[2]
+        ennustatud_ajad=järjend[3]
+    
+#menu.add_cascade(label="Homme", command=lambda: tomorrow(colour))
 #see lisab sinna menüü alla mingeid vidinaid
-menu.add_cascade(label="Tulevikus", command=lambda: future(colour, ajad, tegevused, ennustatud_ajad))
+#menu.add_cascade(label="Tulevikus", command=lambda: future(colour, ajad, tegevused, ennustatud_ajad))
+menu.add_command(label="Sulge", command=sulge)
+menu.add_command(label="Salvesta", command=salvestaAndmebaas)
+menu.add_command(label="Lae", command=LaeAndmebaas)
+#menu.add_cascade(label="Salvesta", command=lambda: future(colour, ajad, tegevused, ennustatud_ajad))
 menu.add_cascade(label="Statistika", command=lambda: info(colour, ajad, tegevused, ennustatud_ajad))
 
 #kujunduse värvide kompott
+                 
 def värv():
     color = colorchooser.askcolor()
     color_name = color[1]
@@ -82,6 +119,7 @@ nupp.grid(column=4, row= 0, padx=5, pady=6)
 ajad = []
 tegevused = []
 ennustatud_ajad = []
+
 # failinimi = "todo.txt"
 # #viimasel real on nupp "salvesta"
 # salvestan = Button(raam, cursor="hand2",

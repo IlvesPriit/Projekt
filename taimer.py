@@ -107,3 +107,11 @@ quitButton.pack()
 countdown()
 
 root.mainloop()
+
+hinded = { # Python lubab sulgude sees reavahetust vabalt kasutada
+    'Peeter Paat': [5, 4, 5, 3, 4, 3, 5, 5],
+    'Kadri Karu' : [5, 5, 5, 5, 4, 5, 5, 5],
+    'Mart Maru'  : [3, 3, 3, 3, 5, 3, 3, 4]
+}
+
+print(hinded["Peeter Paat"][1])

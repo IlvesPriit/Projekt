@@ -14,6 +14,10 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegev
         ajad.append(aja_sisestamine.get())
         tegevused.append(tegevuse_sisestamine.get())
         ennustatud_ajad.append(aja_sisestamine.get())
+    lisa_statistikasse(tegevuse_sisestamine, aja_sisestamine, ennustatud_ajad)
+    print(ajad)
+    print(tegevused)
+    print(ennustatud_ajad)
     global n      
     n=n+1
     print(n)
@@ -296,12 +300,14 @@ def stopp3(raam,rida,kiri,n):
     nupp = Button(raam, cursor="hand2", text="Start"+str(n),font=kiri, bg="lime green", command=lambda loomise_hetke_n=n : start3(raam,rida,kiri,loomise_hetke_n))
     nupp.grid(column=4, row=rida, padx=5, pady=6)
     nupp.pack_forget()
-###########################################################################################################################################################################
-    
-sõnastik = {}
+########################################################################################################################################################################### 
+järjend = []
 def get_info(n,tegevuse_sisestamine_tulemus,aja_sisestamine,lõppjärjend):
-    sõnastik[n]=[tegevuse_sisestamine_tulemus,aja_sisestamine,lõppjärjend]
-    print(sõnastik)
+    alam_list = [n,tegevuse_sisestamine_tulemus,aja_sisestamine,lõppjärjend]
+    #print(alam_list)
+    global järjend
+    järjend+= alam_list
+    #print(alam_list)
 
 
 
