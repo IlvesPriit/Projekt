@@ -6,7 +6,7 @@ from Tulevikus import future
 from Statistika import info
 from lisa_to_do import do_do
 from lisa_to_do import n
-
+from taastamine import taasta
 #tekitame raami
 raam = Tk()
 raam.title("To Do")
@@ -45,7 +45,7 @@ def LaeAndmebaas():
         ajad=järjend[1]
         tegevused=järjend[2]
         ennustatud_ajad=järjend[3]
-    
+        taasta(raam, colour, n, kiri, ajad, tegevused, ennustatud_ajad)
 #menu.add_cascade(label="Homme", command=lambda: tomorrow(colour))
 #see lisab sinna menüü alla mingeid vidinaid
 #menu.add_cascade(label="Tulevikus", command=lambda: future(colour, ajad, tegevused, ennustatud_ajad))
