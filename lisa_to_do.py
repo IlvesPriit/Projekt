@@ -142,7 +142,7 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegev
         global stardi
 
         def stardi(raam,rida,kiri,n):
-            nupp = Button(raam,cursor="hand2",text=" stopp ",font=kiri,bg="tomato",command=lambda loomise_hetke_n=n: stopp(raam,rida,kiri,loomise_hetke_n))
+            nupp = Button(raam,cursor="hand2",text="stopp",font=kiri,bg="tomato",command=lambda loomise_hetke_n=n: stopp(raam,rida,kiri,loomise_hetke_n))
             nupp.grid(column=4, row = rida,  padx=5, pady=6)
             aeg = aja_sisestamine.get()
             järjend = aeg.split(":")
@@ -177,7 +177,7 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegev
         progress.grid(column=5, row=rida, padx=5, pady=6)
 
     # #nupp, et soovimatud to_do-d kustutada
-        ristike = Button(raam, text=" X ",bg="MediumVioletRed", command=lambda: unusta(clock,c,tegevuse_sisestamine_tulemus,aja_sisestamine_tulemus,nupp,progress,ristike))
+        ristike = Button(raam, text=" X ",bg="MediumVioletRed", command=lambda: unusta(timer,c,tegevuse_sisestamine_tulemus,aja_sisestamine_tulemus,nupp,progress,ristike))
         ristike.grid(column=6, row=rida, padx=5, pady=6)
         
 #######################################################################################################################################################################
@@ -185,7 +185,7 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegev
         global stardi2
 
         def stardi2(raam,rida,kiri,n):
-            nupp = Button(raam,cursor="hand2",text=" stopp ",font=kiri,bg="tomato",command=lambda loomise_hetke_n=n : stopp2(raam,rida,kiri,loomise_hetke_n))
+            nupp = Button(raam,cursor="hand2",text="stopp",font=kiri,bg="tomato",command=lambda loomise_hetke_n=n : stopp2(raam,rida,kiri,loomise_hetke_n))
             nupp.grid(column=4, row = rida,  padx=5, pady=6)
             aeg = aja_sisestamine.get()
             järjend = aeg.split(":")
@@ -229,7 +229,7 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegev
         global stardi3
 
         def stardi3(raam,rida,kiri,n):
-            nupp = Button(raam,cursor="hand2",text=" stopp ",font=kiri,bg="tomato",command=lambda loomise_hetke_n=n : stopp3(raam,rida,kiri,loomise_hetke_n))
+            nupp = Button(raam,cursor="hand2",text="stopp",font=kiri,bg="tomato",command=lambda loomise_hetke_n=n : stopp3(raam,rida,kiri,loomise_hetke_n))
             nupp.grid(column=4, row = rida,  padx=5, pady=6)
             aeg = aja_sisestamine.get()
             järjend = aeg.split(":")
@@ -271,7 +271,7 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegev
         global stardi4
 
         def stardi4(raam,rida,kiri,n):
-            nupp = Button(raam,cursor="hand2",text=" stopp ",font=kiri,bg="tomato",command=lambda loomise_hetke_n=n : stopp4(raam,rida,kiri,loomise_hetke_n))
+            nupp = Button(raam,cursor="hand2",text="stopp",font=kiri,bg="tomato",command=lambda loomise_hetke_n=n : stopp4(raam,rida,kiri,loomise_hetke_n))
             nupp.grid(column=4, row = rida,  padx=5, pady=6)
             aeg = aja_sisestamine.get()
             järjend = aeg.split(":")
@@ -317,7 +317,7 @@ def start(raam,rida,kiri,n):
     global olek
     olek = True
 
-    nupp = Button(raam,cursor="hand2",text=" Stopp",font=kiri,bg="tomato",command=lambda loomise_hetke_n=n : stopp(raam,rida,kiri,loomise_hetke_n))
+    nupp = Button(raam,cursor="hand2",text="Stopp",font=kiri,bg="tomato",command=lambda loomise_hetke_n=n : stopp(raam,rida,kiri,loomise_hetke_n))
     nupp.grid(column=4, row=rida,  padx=5, pady=6)
     nupp.pack_forget()
 def stopp(raam,rida,kiri,n):
@@ -325,7 +325,7 @@ def stopp(raam,rida,kiri,n):
     olek = False
 
     # soovime, et nupp veniks nii laiuses kui ka kõrguses
-    nupp = Button(raam, cursor="hand2", text="Start",font=kiri, bg="lime green", command=lambda loomise_hetke_n=n : start(raam,rida,kiri,loomise_hetke_n))
+    nupp = Button(raam, cursor="hand2", text=" Start ",font=kiri, bg="lime green", command=lambda loomise_hetke_n=n : start(raam,rida,kiri,loomise_hetke_n))
     nupp.grid(column=4, row=rida, padx=5, pady=6)
     nupp.pack_forget()
 ###########################################################################################################################################################################
@@ -342,7 +342,7 @@ def stopp2(raam,rida,kiri,n):
     olek2 = False
 
     # soovime, et nupp veniks nii laiuses kui ka kõrguses
-    nupp = Button(raam, cursor="hand2", text="Start",font=kiri, bg="lime green", command=lambda loomise_hetke_n=n : start2(raam,rida,kiri,loomise_hetke_n))
+    nupp = Button(raam, cursor="hand2", text=" Start ",font=kiri, bg="lime green", command=lambda loomise_hetke_n=n : start2(raam,rida,kiri,loomise_hetke_n))
     nupp.grid(column=4, row=rida, padx=5, pady=6)
     nupp.pack_forget()
 ###########################################################################################################################################################################
@@ -352,7 +352,7 @@ def start3(raam,rida,kiri,n):
     global olek3
     olek3 = True
 
-    nupp = Button(raam,cursor="hand2",text=" Stopp",font=kiri,bg="tomato",command=lambda loomise_hetke_n=n : stopp3(raam,rida,kiri,loomise_hetke_n))
+    nupp = Button(raam,cursor="hand2",text="Stopp",font=kiri,bg="tomato",command=lambda loomise_hetke_n=n : stopp3(raam,rida,kiri,loomise_hetke_n))
     nupp.grid(column=4, row=rida,  padx=5, pady=6)
     nupp.pack_forget()
 def stopp3(raam,rida,kiri,n):
@@ -360,7 +360,7 @@ def stopp3(raam,rida,kiri,n):
     olek3 = False
 
     # soovime, et nupp veniks nii laiuses kui ka kõrguses
-    nupp = Button(raam, cursor="hand2", text="Start",font=kiri, bg="lime green", command=lambda loomise_hetke_n=n : start3(raam,rida,kiri,loomise_hetke_n))
+    nupp = Button(raam, cursor="hand2", text=" Start ",font=kiri, bg="lime green", command=lambda loomise_hetke_n=n : start3(raam,rida,kiri,loomise_hetke_n))
     nupp.grid(column=4, row=rida, padx=5, pady=6)
     nupp.pack_forget()
 ###########################################################################################################################################################################
@@ -368,14 +368,14 @@ def stopp3(raam,rida,kiri,n):
 def start4(raam,rida,kiri,n):
     global olek4
     olek4 = True
-    nupp = Button(raam,cursor="hand2",text=" Stopp",font=kiri,bg="tomato",command=lambda loomise_hetke_n=n : stopp4(raam,rida,kiri,loomise_hetke_n))
+    nupp = Button(raam,cursor="hand2",text="Stopp",font=kiri,bg="tomato",command=lambda loomise_hetke_n=n : stopp4(raam,rida,kiri,loomise_hetke_n))
     nupp.grid(column=4, row=rida,  padx=5, pady=6)
     nupp.pack_forget()
 def stopp4(raam,rida,kiri,n):
     global olek4
     olek4 = False
     # soovime, et nupp veniks nii laiuses kui ka kõrguses
-    nupp = Button(raam, cursor="hand2", text="Start",font=kiri, bg="lime green", command=lambda loomise_hetke_n=n : start4(raam,rida,kiri,loomise_hetke_n))
+    nupp = Button(raam, cursor="hand2", text=" Start ",font=kiri, bg="lime green", command=lambda loomise_hetke_n=n : start4(raam,rida,kiri,loomise_hetke_n))
     nupp.grid(column=4, row=rida, padx=5, pady=6)
     nupp.pack_forget()
 ########################################################################################################################################################################### 

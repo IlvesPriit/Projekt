@@ -4,15 +4,7 @@ from tkinter import colorchooser
 from Homme import tomorrow
 from Tulevikus import future
 from Statistika import info
-#from lisa_to_do import do_do
-#from lisa_to_do import n
-#from lisa_to_do import do_do
-#from lisa_to_do import start
-#from lisa_to_do import start2
-#from lisa_to_do import start3
-#from lisa_to_do import stopp
-#from lisa_to_do import stopp2
-#from lisa_to_do import stopp3
+
 
 
 def taasta(raam, colour, n, kiri, ajad, tegevused, ennustatud_ajad):
