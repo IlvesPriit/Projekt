@@ -138,6 +138,7 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegev
         raam.after(1000, countdown4)
 # STARDI SEKTSIOONID
 ##############################################################################################################################################################################
+
     if n == 1:
         global stardi
 

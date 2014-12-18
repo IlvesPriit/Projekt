@@ -1,14 +1,14 @@
 #meh
 from tkinter import *
 from tkinter import colorchooser
-from Homme import tomorrow
-from Tulevikus import future
-from Statistika import info
-
-
+from tkinter import ttk
+#from Homme import tomorrow
+#from Tulevikus import future
+#from Statistika import info
+#from Projekt import* 
 
 def taasta(raam, colour, n, kiri, ajad, tegevused, ennustatud_ajad):
-    print(n)
+    
     var = IntVar()
     c = Checkbutton(raam, activebackground=colour,
                     background=colour, variable=var,
@@ -17,14 +17,16 @@ def taasta(raam, colour, n, kiri, ajad, tegevused, ennustatud_ajad):
    
     rida= c.grid_info()["row"]
     #võtame entry boxidest sisestatu
-
-    tegevuse_sisestamine_tulemus = Label(raam, text=ajad, background=colour, font=kiri)
+    print(ajad)
+    print(tegevused)
+    print(ennustatud_ajad)
+    tegevuse_sisestamine_tulemus = Label(raam, text=tegevused, background=colour, font=kiri)
     tegevuse_sisestamine_tulemus.grid(column=1, row = rida, padx=5, pady=6)
 
     aja_sisestamine_tulemus = Label(raam, text="Aeg:", background=colour, font=kiri)
     aja_sisestamine_tulemus.grid(column=2, row = rida,  padx=5, pady=6)
     #print(ajad)
-    aja_sisestamine_tulemus = Label(raam, text=tegevused, background=colour, font=kiri)
+    aja_sisestamine_tulemus = Label(raam, text=ajad, background=colour, font=kiri)
     aja_sisestamine_tulemus.grid(column=3, row = rida,  padx=5, pady=6)
 
 # TIMERI SEKTSIOONID    
@@ -105,13 +107,15 @@ def taasta(raam, colour, n, kiri, ajad, tegevused, ennustatud_ajad):
 
 # STARDI SEKTSIOONID
 ##############################################################################################################################################################################
+    n = int(n)
     if n == 1:
+        print(" aga siin" ) 
         global stardi
 
         def stardi(raam,rida,kiri,n):
             nupp = Button(raam,cursor="hand2",text=" stopp "+str(n),font=kiri,bg="tomato",command=lambda loomise_hetke_n=n: stopp(raam,rida,kiri,loomise_hetke_n))
             nupp.grid(column=4, row = rida,  padx=5, pady=6)
-            aeg = aja_sisestamine.get()
+            aeg = ajad
             järjend = aeg.split(":")
             global lõppjärjend
             lõppjärjend= []           
@@ -154,7 +158,7 @@ def taasta(raam, colour, n, kiri, ajad, tegevused, ennustatud_ajad):
         def stardi2(raam,rida,kiri,n):
             nupp = Button(raam,cursor="hand2",text=" stopp "+str(n),font=kiri,bg="tomato",command=lambda loomise_hetke_n=n : stopp2(raam,rida,kiri,loomise_hetke_n))
             nupp.grid(column=4, row = rida,  padx=5, pady=6)
-            aeg = aja_sisestamine.get()
+            aeg = ajad
             järjend = aeg.split(":")
             global lõppjärjend2
             lõppjärjend2= []
@@ -198,7 +202,7 @@ def taasta(raam, colour, n, kiri, ajad, tegevused, ennustatud_ajad):
         def stardi3(raam,rida,kiri,n):
             nupp = Button(raam,cursor="hand2",text=" stopp "+str(n),font=kiri,bg="tomato",command=lambda loomise_hetke_n=n : stopp3(raam,rida,kiri,loomise_hetke_n))
             nupp.grid(column=4, row = rida,  padx=5, pady=6)
-            aeg = aja_sisestamine.get()
+            aeg = ajad
             järjend = aeg.split(":")
             global lõppjärjend3
             lõppjärjend3= []
