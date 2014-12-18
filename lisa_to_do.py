@@ -63,6 +63,7 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegev
 
             timeString = pattern.format(timer[0], timer[1], timer[2])
             timeText.configure(text=timeString)
+            ajad[0]=timeString
         raam.after(1000, countdown)
 ###############################################################################################################################################################################       
     global olek2
@@ -87,6 +88,7 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegev
 
             timeString2 = pattern.format(timer2[0], timer2[1], timer2[2])
             timeText2.configure(text=timeString2)
+            ajad[1]=timeString2
         raam.after(1000, countdown2)
 ###############################################################################################################################################################################
     global olek3
@@ -111,6 +113,7 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegev
 
             timeString3 = pattern.format(timer3[0], timer3[1], timer3[2])
             timeText3.configure(text=timeString3)
+            ajad[3]=timeString3
         raam.after(1000, countdown3)
 ##############################################################################################################################################################################
     global olek4
@@ -132,7 +135,7 @@ def do_do(raam, colour, tegevuse_sisestamine, aja_sisestamine, kiri, ajad, tegev
                     timer4[0]=timer4[0]-1
                     timer4[1]=59
                     timer4[2]=59
-
+            
             timeString4 = pattern.format(timer4[0], timer4[1], timer4[2])
             timeText4.configure(text=timeString4)
         raam.after(1000, countdown4)

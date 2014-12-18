@@ -42,9 +42,9 @@ def LaeAndmebaas():
             continue
         järjend= i.split(";")
         n = järjend[0]
-        ajad=järjend[2]
+        ajad=järjend[3]
         tegevused=järjend[1]
-        ennustatud_ajad=järjend[3]
+        ennustatud_ajad=järjend[2]
         taasta(raam, colour, n, kiri, ajad, tegevused, ennustatud_ajad)
 #menu.add_cascade(label="Homme", command=lambda: tomorrow(colour))
 #see lisab sinna menüü alla mingeid vidinaid

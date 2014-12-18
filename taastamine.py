@@ -17,9 +17,7 @@ def taasta(raam, colour, n, kiri, ajad, tegevused, ennustatud_ajad):
    
     rida= c.grid_info()["row"]
     #võtame entry boxidest sisestatu
-    print(ajad)
-    print(tegevused)
-    print(ennustatud_ajad)
+
     tegevuse_sisestamine_tulemus = Label(raam, text=tegevused, background=colour, font=kiri)
     tegevuse_sisestamine_tulemus.grid(column=1, row = rida, padx=5, pady=6)
 
@@ -103,6 +101,7 @@ def taasta(raam, colour, n, kiri, ajad, tegevused, ennustatud_ajad):
 
             timeString3 = pattern.format(timer3[0], timer3[1], timer3[2])
             timeText3.configure(text=timeString3)
+            
         raam.after(1000, countdown3)
 
 # STARDI SEKTSIOONID
@@ -113,6 +112,7 @@ def taasta(raam, colour, n, kiri, ajad, tegevused, ennustatud_ajad):
         global stardi
 
         def stardi(raam,rida,kiri,n):
+            
             nupp = Button(raam,cursor="hand2",text=" stopp "+str(n),font=kiri,bg="tomato",command=lambda loomise_hetke_n=n: stopp(raam,rida,kiri,loomise_hetke_n))
             nupp.grid(column=4, row = rida,  padx=5, pady=6)
             aeg = ajad
@@ -244,8 +244,10 @@ def taasta(raam, colour, n, kiri, ajad, tegevused, ennustatud_ajad):
 def start(raam,rida,kiri,n):
     global olek
     olek = True
+    timeText.destroy()
     print(olek," --vajutasid start 1")
     nupp = Button(raam,cursor="hand2",text=" Stopp"+str(n),font=kiri,bg="tomato",command=lambda loomise_hetke_n=n : stopp(raam,rida,kiri,loomise_hetke_n))
+    
     nupp.grid(column=4, row=rida,  padx=5, pady=6)
     nupp.pack_forget()
 def stopp(raam,rida,kiri,n):
